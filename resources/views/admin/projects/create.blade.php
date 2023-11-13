@@ -31,8 +31,8 @@
 
             <div class="mb-3">
                 <label for="link_github" class="form-label text-warning">Link Github</label>
-                <input type="text" class="form-control" name="link_github" id="link_github" aria-describedby="link_githubHelper"
-                    placeholder="https://www.example.com">
+                <input type="text" class="form-control" name="link_github" id="link_github"
+                    aria-describedby="link_githubHelper" placeholder="https://www.example.com">
                 <small id="link_githubHelper" class="form-text text-white">
                     <i class="fa-solid fa-circle-exclamation"></i>
                     Digitare il link di Github qui
@@ -45,8 +45,8 @@
 
             <div class="mb-3">
                 <label for="link_website" class="form-label text-warning">Link Sito Web</label>
-                <input type="text" class="form-control" name="link_website" id="link_website" aria-describedby="link_websiteHelper"
-                    placeholder="https://www.example.com">
+                <input type="text" class="form-control" name="link_website" id="link_website"
+                    aria-describedby="link_websiteHelper" placeholder="https://www.example.com">
                 <small id="link_websiteHelper" class="form-text text-white">
                     <i class="fa-solid fa-circle-exclamation"></i>
                     Digitare il link del sito Web qui
@@ -65,6 +65,27 @@
                     Inserisci la descrizione del progetto qui
                 </small>
             </div>
+
+
+            <div class="mb-3">
+                <label for="type_id" class="form-label text-warning">Tipologia di file</label>
+                <select class="form-select @error('type_id') is-invalid  @enderror" name="type_id" id="type_id">
+                    <option selected disabled>Seleziona una tipologia di file</option>
+
+                    @forelse ($types as $type)
+                        <option value="{{ $type->id }}" {{ $type->id == old('type_id') ? 'selected' : '' }}>
+                            {{ $type->name }}</option>
+                    @empty
+                    @endforelse
+                </select>
+
+                @error('type_id')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
+            </div>
+
+
+
 
             <div class="mb-3">
                 <label for="cover_image" class="form-label text-warning">Scegli immagine</label>

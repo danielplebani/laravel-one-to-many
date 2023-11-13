@@ -59,12 +59,32 @@
             </small>
         </div>
 
+
         <div class="mb-3">
             <label for="content" class="form-label text-warning">Descrizione</label>
             <input type="text" class="form-control" name="content" id="content" aria-describedby="helpId"
                 placeholder="Acolyte is a action movies with..." value="{{ old('content', $project->content) }}">
             <small id="contentHelper" class="form-text text-white">Inserisci la descrizione del progetto qui</small>
         </div>
+
+        <div class="mb-3">
+            <label for="type_id" class="form-label text-warning">Tipologia di file</label>
+            <select class="form-select @error('type_id') is-invalid  @enderror" name="type_id" id="type_id">
+                <option selected disabled>Seleziona una tipologia di file</option>
+
+                @forelse ($types as $type)
+                    <option value="{{ $type->id }}" {{ $type->id == old('type_id') ? 'selected' : '' }}>
+                        {{ $type->name }}</option>
+                @empty
+                @endforelse
+            </select>
+
+            @error('type_id')
+                <div class="text-danger">{{ $message }}</div>
+            @enderror
+        </div>
+
+        
 
         <div class="mb-3">
             <label for="cover_image" class="form-label text-warning">Scegli immagine</label>
@@ -84,4 +104,3 @@
         <i class="fa-solid fa-circle-exclamation"></i> =campi richiesti
     </div>
 @endsection
- 
