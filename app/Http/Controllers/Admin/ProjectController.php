@@ -6,7 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Project;
 use App\Models\Type;
 use Illuminate\Http\Request;
-use App\Http\Requests\ProjectRequest;
+use App\Http\Requests\CreateProjectRequest;
+use App\Http\Requests\UpdateProjectRequest;
 use Illuminate\Support\Facades\Storage;
 
 class ProjectController extends Controller
@@ -32,7 +33,7 @@ class ProjectController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(ProjectRequest $request)
+    public function store(CreateProjectRequest $request)
     {
         $validated = $request->validated();
 
@@ -66,7 +67,7 @@ class ProjectController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(ProjectRequest $request, Project $project)
+    public function update(UpdateProjectRequest $request, Project $project)
     {
         $validated = $request->validated();
 
