@@ -109,11 +109,11 @@
                                         Progetti
                                     </div>
                                 </a>
-                                <a class="ps-3 nav-link text-white {{ Route::currentRouteName() == 'admin.wallet' ? 'bg-secondary' : '' }}"
-                                    href="{{ route('admin.wallet') }}">
+                                <a class="ps-3 nav-link text-white {{ Route::currentRouteName() == 'admin.contatti' ? 'bg-secondary' : '' }}"
+                                    href="{{ route('admin.contatti') }}">
                                     <div class="d-flex gap-1 align-items-center">
                                         <i class="fs-5 fa-solid fa-wallet"></i> 
-                                        Wallet
+                                        Contatti
                                     </div>
                                 </a>
                             </li>

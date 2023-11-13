@@ -26,7 +26,7 @@ Route::middleware('auth')
 ->name('admin.')
 ->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
-    Route::get('/wallet', [DashboardController::class, 'wallet'])->middleware(['auth', 'verified'])->name('wallet');
+    Route::get('/contatti', [DashboardController::class, 'contatti'])->middleware(['auth', 'verified'])->name('contatti');
     
     Route::resource('/projects', ProjectController::class);
 });
